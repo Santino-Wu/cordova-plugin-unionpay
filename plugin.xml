@@ -17,37 +17,37 @@
 	<platform name="android">
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="Unionpay">
-				<param name="android-package" value="com.santinowu.cordova.unionpay" />
-				<param name="onload" value="true" />
+				<param name="android-package" value="com.santinowu.cordova.unionpay.Unionpay" />
 			</feature>
 		</config-file>
 
 		<config-file target="AndroidManifest.xml" parent="/*">
-            <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="4"/>
             <uses-permission android:name="android.permission.INTERNET"/>
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
             <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
             <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.NFC" />
+            <uses-feature android:name="android.hardware.nfc.hce"/>
 		</config-file>
 
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
-			<activity android:name="com.unionpay.uppay.PayActivity"
-                android:configChanges="orientation|keyboardHidden|screenSize"
-                android:excludeFromRecents="true"
+            <activity android:name="com.unionpay.uppay.PayActivity"
                 android:screenOrientation="portrait"
-				android:windowSoftInputMode="adjustResize">
-			</activity>
+                android:configChanges="orientation|keyboardHidden"
+                android:excludeFromRecents="true"
+                android:windowSoftInputMode="adjustResize" />
 		</config-file>
 
 		<source-file src="src/android/Unionpay.java" target-dir="src/com/santinowu/cordova/unionpay" />
 		<source-file src="libs/android/UPPayAssistEx.jar" target-dir="libs" />
-		<source-file src="libs/android/arm64-v8a/libentryex.so" target-dir="libs" />
-		<source-file src="libs/android/armeabi/libentryex.so" target-dir="libs" />
-		<source-file src="libs/android/armeabi-v7a/libentryex.so" target-dir="libs" />
-		<source-file src="libs/android/mips/libentryex.so" target-dir="libs" />
-		<source-file src="libs/android/x86/libentryex.so" target-dir="libs" />
-		<source-file src="res/drawable/data.bin" target-dir="res" />
+		<source-file src="libs/android/UPPayPluginEx.jar" target-dir="libs" />
+		<source-file src="libs/android/arm64-v8a/libentryex.so" target-dir="libs/arm64-v8a" />
+		<source-file src="libs/android/armeabi/libentryex.so" target-dir="libs/armeabi" />
+		<source-file src="libs/android/armeabi-v7a/libentryex.so" target-dir="libs/armeabi-v7a" />
+		<source-file src="libs/android/mips/libentryex.so" target-dir="libs/mips" />
+		<source-file src="libs/android/x86/libentryex.so" target-dir="libs/x86" />
+		<source-file src="libs/android/data.bin" target-dir="assets" />
 	</platform>
 </plugin>
