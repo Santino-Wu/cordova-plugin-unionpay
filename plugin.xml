@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	id="com.santinowu.cordova.unionpay"
+	version="1.0.0">
+
+	<name>Unionpay</name>
+    <description>A cordova plugin for Unionpay.</description>
+    <license>MIT</license>
+    <keywords>Cordova,Pay,Unionpay,银联手机支付</keywords>
+
+	<js-module src="www/unionpay.js" name="unionpay">
+		<clobbers target="unionpay" />
+	</js-module>
+
+	<!-- Android configuration -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="Unionpay">
+				<param name="android-package" value="com.santinowu.cordova.unionpay" />
+				<param name="onload" value="true" />
+			</feature>
+		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/*">
+            <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="4"/>
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:name="com.unionpay.uppay.PayActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:excludeFromRecents="true"
+                android:screenOrientation="portrait"
+				android:windowSoftInputMode="adjustResize">
+			</activity>
+		</config-file>
+
+		<source-file src="src/android/Unionpay.java" target-dir="src/com/santinowu/cordova/unionpay" />
+		<source-file src="libs/android/UPPayAssistEx.jar" target-dir="libs" />
+		<source-file src="libs/android/arm64-v8a/libentryex.so" target-dir="libs" />
+		<source-file src="libs/android/armeabi/libentryex.so" target-dir="libs" />
+		<source-file src="libs/android/armeabi-v7a/libentryex.so" target-dir="libs" />
+		<source-file src="libs/android/mips/libentryex.so" target-dir="libs" />
+		<source-file src="libs/android/x86/libentryex.so" target-dir="libs" />
+		<source-file src="res/drawable/data.bin" target-dir="res" />
+	</platform>
+</plugin>
