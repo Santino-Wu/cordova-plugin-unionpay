@@ -1,15 +1,25 @@
 # cordova-plugin-unionpay
-Cordova plugin for Unionpay
+
+Cordova plugin for Unionpay.
 
 ## Installation
 
 ```
-# Cordova
-cordova plugin add https://github.com/Santino-Wu/cordova-plugin-unionpay.git
+# Official environment, Cordova
+cordova plugin add https://github.com/Santino-Wu/cordova-plugin-unionpay.git --variable UNIONPAYMODE=00
 
-# Ionic
-ionic plugin add https://github.com/Santino-Wu/cordova-plugin-unionpay.git
+# Develop environment, Cordova
+cordova plugin add https://github.com/Santino-Wu/cordova-plugin-unionpay.git --variable UNIONPAYMODE=01
+
+# Official environment, Ionic
+ionic plugin add https://github.com/Santino-Wu/cordova-plugin-unionpay.git --variable UNIONPAYMODE=00
+
+# Develop environment, Ionic
+ionic plugin add https://github.com/Santino-Wu/cordova-plugin-unionpay.git --variable UNIONPAYMODE=01
 ```
+
+> The above parameter `--variable UNIONPAYMODE=00` means invoking payment in official environment.
+> If you don't have the permission for invoking payment in official environment, set variable `UNIONPAYMODE` as `01`(which is **develop** mode) to invoke payment.
 
 ## Usage
 
@@ -41,4 +51,4 @@ window.unionpay.pay(tn, function (msg) {
 
 ## TODO
 
-* [ ] To support iOS
+* [x] To support iOS
