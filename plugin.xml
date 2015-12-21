@@ -9,6 +9,8 @@
 	<license>MIT</license>
 	<keywords>Cordova,Pay,Unionpay,银联手机支付</keywords>
 
+	<preference name="UnionpayMode" />
+
 	<js-module src="www/unionpay.js" name="unionpay">
 		<clobbers target="unionpay" />
 	</js-module>
@@ -18,7 +20,10 @@
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="Unionpay">
 				<param name="android-package" value="com.santinowu.cordova.unionpay.Unionpay" />
+				<param name="onload" value="true" />
 			</feature>
+
+			<preference name="UnionpayMode" value="$UNIONPAYMODE" />
 		</config-file>
 
 		<config-file target="AndroidManifest.xml" parent="/*">
@@ -55,7 +60,10 @@
 		<config-file target="config.xml" parent="/*">
 			<feature name="Unionpay">
 				<param name="ios-package" value="Unionpay" />
+				<param name="onload" value="true" />
 			</feature>
+
+			<preference name="UnionpayMode" value="$UNIONPAYMODE" />
 		</config-file>
 
 		<header-file src="src/ios/Unionpay.h" />

@@ -4,7 +4,7 @@
 
 @implementation Unionpay
 
-NSString* const UNIONPAY_MODE_KEY       = @"UnionpayMode";
+NSString* const UNIONPAY_MODE_KEY       = @"unionpaymode";
 NSString* const RESULT_SUCCESS          = @"success";
 NSString* const RESULT_FAIL             = @"fail";
 NSString* const RESULT_CANCEL           = @"cancel";
