@@ -1,6 +1,6 @@
 # cordova-plugin-unionpay
 
-Cordova plugin for Unionpay.
+Cordova plugin for Unionpay, supports **iOS** and **Android**.
 
 ## Installation
 
@@ -48,7 +48,3 @@ window.unionpay.pay(tn, function (msg) {
     // ...
 });
 ```
-
-## TODO
-
-* [x] To support iOS
